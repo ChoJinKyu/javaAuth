@@ -1,0 +1,30 @@
+package customer.javaauth.common.user;
+
+import java.util.HashMap;
+import java.util.Map;
+
+import com.sap.cds.services.request.UserInfo;
+import com.sap.cds.services.runtime.UserInfoProvider;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+
+@Component
+public class ExtUserInfoProvider implements UserInfoProvider {
+
+    @Autowired
+    ExtUserService extUserService;
+
+    @Override
+    public UserInfo get() {
+        Map<String, Object> additionalAttributes = new HashMap<String, Object>();
+        additionalAttributes.put("Attr1", "Attr1");
+        additionalAttributes.put("Attr2", "Attr2");
+        additionalAttributes.put("Attr3", "Attr3");
+        additionalAttributes.put("session",extUserService.loadExtUser());
+
+        return UserInfo.create().setAdditionalAttributes(additionalAttributes);
+    }
+
+
+}

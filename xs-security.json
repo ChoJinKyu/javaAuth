@@ -1,0 +1,60 @@
+{
+    "xsappname": "javaauth",
+    "tenant-mode": "dedicated",
+    "description": "Security profile of called application",
+    "scopes": [
+        {
+            "name": "uaa.user",
+            "description": "UAA"
+        },
+        {
+            "name": "$XSAPPNAME.View",
+            "description": "View Permissions."
+        },
+        {
+            "name": "$XSAPPNAME.SysAdmin",
+            "description": "Admin permissions."
+        }
+    ],
+    "role-templates": [
+        {
+            "name": "Token_Exchange",
+            "description": "UAA",
+            "scope-references": [
+                "uaa.user"
+            ]
+        },
+        {
+            "name": "Viewer_T",
+            "description": "View Tem",
+            "scope-references": [
+                "uaa.user",
+                "$XSAPPNAME.View"
+            ]
+        },
+        {
+            "name": "SystemAdmin_T",
+            "description": "System Admin Tem",
+            "scope-references": [
+                "uaa.user",
+                "$XSAPPNAME.SysAdmin"
+            ]
+        }
+    ],
+    "role-collections": [
+        {
+            "name": "Viewer_C",
+            "description": "Viewer Col",
+            "role-template-references": [
+                "$XSAPPNAME.Viewer_T"
+            ]
+        },
+        {
+            "name": "SysAdmin_C",
+            "description": "System Admin Col",
+            "role-template-references": [
+                "$XSAPPNAME.SystemAdmin_T"
+            ]
+        }
+    ]
+}

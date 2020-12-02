@@ -1,0 +1,42 @@
+package customer.javaauth.common.user;
+
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
+
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.stereotype.Service;
+
+@Service
+public class UserService implements  UserDetailsService  {
+    @Override
+    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+        User user = new User();
+        user.setName("ckcho");
+        user.setUsername(username);
+        user.setEnabled(true);
+        user.setAccountNonExpired(true);
+        user.setAccountNonLocked(true);
+        user.setAuthorities(getAuthorities(username));
+
+        return user;
+    }
+
+    public Collection<GrantedAuthority> getAuthorities(String username) {
+        //List<String> string_authorities = userMapper.readAuthority(username);
+        List<String> string_authorities = new ArrayList<String>();
+        string_authorities.add("READ");
+        string_authorities.add("VIEW");
+
+        List<GrantedAuthority> authorities = new ArrayList<GrantedAuthority>();
+        for (String authority : string_authorities) {
+            authorities.add(new SimpleGrantedAuthority(authority));
+        }
+        return authorities;
+
+    }
+}

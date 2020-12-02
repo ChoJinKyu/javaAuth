@@ -1,0 +1,53 @@
+<mvc:View controllerName="cm.bookMgr.controller.BookMgrView" xmlns:mvc="sap.ui.core.mvc" displayBlock="true" xmlns="sap.m">
+	<Shell id="shell">
+		<App id="app">
+			<pages>
+				<Page id="page" title="{i18n>title}">
+					<content>
+                    
+                        <Table  id="BookList" 
+                                items="{path : '/Books', 
+                                        parameters: {
+                                            $count: true,
+                                            $$updateGroupId : 'bookGroup'
+                                            }
+                                        }"
+                                mode="MultiSelect"
+                                growing="true"
+                                growingThreshold="5"
+                                growingScrollToLoad="false"
+                        >
+                            <columns>
+                                <Column>
+                                    <header>
+                                        <Label text="ID"/>
+                                    </header>
+                                </Column>
+                                <Column hAlign="Center">
+                                    <header>
+                                        <Label text="title"/>
+                                    </header>
+                                </Column>
+                                <Column hAlign="Center">
+                                    <header>
+                                        <Label text="stock"/>
+                                    </header>
+                                </Column>
+                            </columns>
+                            <items>
+                                <ColumnListItem type="Active" id="bookkItemList">
+                                    <cells>
+                                        <Input type="Text"  value="{ID}"/>
+                                        <Input type="Text"  value="{title}"/>
+                                        <Input type="Text" value="{stock}"/>
+                                    </cells>
+                                </ColumnListItem>
+                            </items>
+                        </Table>
+
+                    </content>
+				</Page>
+			</pages>
+		</App>
+	</Shell>
+</mvc:View>

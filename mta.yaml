@@ -1,0 +1,116 @@
+_schema-version: "3.1"
+ID: javaAuth
+description: javaAuth application
+version: 1.0.0-SNAPSHOT
+modules:
+- name: javaAuth-srv
+  type: java
+  path: srv
+  requires:
+  - name: uaa_javaAuth
+  - name: javaAuth-db
+    properties:
+      SPRING_PROFILES_ACTIVE: cloud
+  provides:
+  - name: srv-api
+    properties:
+      srv-url: ${default-url}
+  build-parameters:
+    build-result: target/*.[wj]ar
+    builder: custom
+    commands:
+    - mvn clean package
+- name: javaAuth-db-deployer
+  type: hdb
+  path: db
+  requires:
+  - name: javaAuth-db
+  parameters:
+    buildpack: nodejs_buildpack
+- name: javaauth-approuter
+  type: approuter.nodejs
+  path: javaauth-approuter
+  requires:
+  - name: javaAuth_html_repo_runtime
+  - name: uaa_javaAuth
+  - name: dest_javaAuth
+  - name: srv-api
+    group: destinations
+    properties:
+      forwardAuthToken: true
+      name: srv-api
+      url: ~{srv-url}
+  parameters:
+    disk-quota: 256M
+    memory: 256M
+- name: javaAuth_ui_deployer
+  type: com.sap.application.content
+  path: .
+  requires:
+  - name: javaAuth_html_repo_host
+    parameters:
+      content-target: true
+  build-parameters:
+    build-result: resources
+    requires:
+    - artifacts:
+      - bookMgr-content.zip
+      name: bookMgr
+      target-path: resources/
+    - artifacts:
+      - booMgrXX-content.zip
+      name: booMgrXX
+      target-path: resources/
+- name: bookMgr
+  type: html5
+  path: app/cm/bookMgr
+  build-parameters:
+    builder: custom
+    commands:
+    - npm run build
+    supported-platforms: []
+- name: booMgrXX
+  type: html5
+  path: app/xx/booMgrXX
+  build-parameters:
+    builder: custom
+    commands:
+    - npm run build
+    supported-platforms: []
+resources:
+- name: javaAuth-db
+  type: com.sap.xs.hdi-container
+  parameters:
+    service: hana
+    service-plan: hdi-shared
+  properties:
+    hdi-service-name: ${service-name}
+- name: javaAuth_html_repo_runtime
+  type: org.cloudfoundry.managed-service
+  parameters:
+    service: html5-apps-repo
+    service-plan: app-runtime
+- name: javaAuth_html_repo_host
+  type: org.cloudfoundry.managed-service
+  parameters:
+    service: html5-apps-repo
+    service-plan: app-host
+- name: uaa_javaAuth
+  type: org.cloudfoundry.managed-service
+  parameters:
+    path: ./xs-security.json
+    service: xsuaa
+    service-name: javaAuth-xsuaa-service
+    service-plan: application
+- name: dest_javaAuth
+  type: org.cloudfoundry.managed-service
+  parameters:
+    service: destination
+    service-plan: lite
+parameters:
+  enable-parallel-deployments: true
+build-parameters:
+  before-all:
+  - builder: custom
+    commands:
+    - npm install

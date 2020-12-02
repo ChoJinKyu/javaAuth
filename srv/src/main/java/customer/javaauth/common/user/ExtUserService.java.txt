@@ -1,0 +1,69 @@
+package customer.javaauth.common.user;
+
+import java.util.HashMap;
+import java.util.Map;
+
+import com.sap.cds.services.request.UserInfo;
+import com.sap.cloud.security.xsuaa.client.OAuth2TokenResponse;
+import com.sap.cloud.security.xsuaa.token.Token;
+import com.sap.cloud.security.xsuaa.token.XsuaaToken;
+import com.sap.cloud.security.xsuaa.tokenflows.TokenFlowException;
+import com.sap.cloud.security.xsuaa.tokenflows.XsuaaTokenFlows;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
+import org.springframework.security.oauth2.jwt.Jwt;
+import org.springframework.stereotype.Service;
+
+@Service
+public class ExtUserService {
+
+    public ExtUserInfo loadExtUser() {
+
+        ExtUserInfo extUser = new ExtUserInfo();
+        extUser.setName("ckcho");
+        extUser.setName_eng("ckcho eng");
+        // connect DB
+        // how can i get origin userId or email from IAS.............
+        return extUser;
+
+    }
+
+/*
+    @Autowired
+    private XsuaaTokenFlows xsuaaTokenFlows;
+
+    public ExtUserInfo loadExtUser() {
+
+
+        ExtUserInfo extUser = new ExtUserInfo();
+
+        Map<String, String> additionalAuthorizationAttributes = new HashMap<String, String>();
+        additionalAuthorizationAttributes.put("Attr11", "Attr11");
+        additionalAuthorizationAttributes.put("Attr22", "Attr22");
+        additionalAuthorizationAttributes.put("Attr33", "Attr33");
+
+        try {
+            OAuth2TokenResponse clientCredentialsTokenResponse = xsuaaTokenFlows.clientCredentialsTokenFlow().attributes(additionalAuthorizationAttributes).execute();
+            //OAuth2TokenResponse clientCredentialsTokenResponse = xsuaaTokenFlows.clientCredentialsTokenFlow().execute();
+
+            //OAuth2TokenResponse clientCredentialsTokenResponse = xsuaaTokenFlows.userTokenFlow().execute();
+
+            extUser.setName("ckcho");
+            extUser.setName_eng("ckcho eng");
+            extUser.setEmail(clientCredentialsTokenResponse.getDecodedAccessToken().getPayload());
+            extUser.setDesc(clientCredentialsTokenResponse.getDecodedAccessToken().getHeader());
+
+        } catch (IllegalArgumentException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        } catch (TokenFlowException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+
+        return extUser;
+    }
+*/
+}
