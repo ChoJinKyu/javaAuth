@@ -1,0 +1,20 @@
+{
+    "name": "approuter_ui",
+    "description": "approuter_ui",
+    "dependencies": {
+        "@sap/approuter": "8.5.1"
+    },
+    "scripts": {
+        "start": "node node_modules/@sap/approuter/approuter.js"
+    },
+    "cds": {
+        "folders": {
+            "srv": "../srv/"
+        },
+        "requires": {
+            "uaa": {
+                "kind": "xsuaa"
+            }
+        }
+    }
+}

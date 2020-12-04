@@ -1,0 +1,22 @@
+{
+    "name": "approuter",
+    "description": "for Local Test",
+    "dependencies": {
+        "@sap/approuter": "8.5.1",
+        "@sap/xsenv": "^3.1.0",
+        "@sap/xssec": "^3.0.10"
+    },
+    "scripts": {
+        "start": "node node_modules/@sap/approuter/approuter.js"
+    },
+    "cds": {
+        "folders": {
+            "srv": "../srv/"
+        },
+        "requires": {
+            "uaa": {
+                "kind": "xsuaa"
+            }
+        }
+    }
+}

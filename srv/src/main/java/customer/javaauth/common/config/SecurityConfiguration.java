@@ -25,85 +25,25 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
 
-        http.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS).and().authorizeRequests()
-                .anyRequest().permitAll().and().oauth2ResourceServer().jwt()
-                .jwtAuthenticationConverter(getJwtAuthenticationConverter());
+        http.sessionManagement()
+                .sessionCreationPolicy(SessionCreationPolicy.STATELESS)
+            .and()
+                .authorizeRequests()
+                .anyRequest().permitAll()
+                .and()
+                    .oauth2ResourceServer()
+                    .jwt()
+                    .jwtAuthenticationConverter(getJwtAuthenticationConverter());
 
     }
+
 
     Converter<Jwt, AbstractAuthenticationToken> getJwtAuthenticationConverter() {
-
-        TokenAuthenticationConverter converter = new TokenAuthenticationConverter(xsuaaServiceConfiguration);
-        converter.setLocalScopeAsAuthorities(true);
-
-		return converter;
-    }
-
-
-    /*
-	Converter<Jwt, AbstractAuthenticationToken> getJwtAuthenticationConverter() {        
         TokenAuthenticationConverter converter = new TokenAuthenticationConverter(xsuaaServiceConfiguration);
         converter.setLocalScopeAsAuthorities(true);
 		return converter;
     }
-    */
 
 
-/*
-	Converter<Jwt, AbstractAuthenticationToken> getJwtAuthenticationConverter() {       
-        TokenAuthenticationConverter converter = new TokenAuthenticationConverter( getXsuaaServiceConfiguration());
-        converter.setLocalScopeAsAuthorities(true);
-		return converter;
-    }
-
-	@Bean
-	XsuaaServiceConfiguration getXsuaaServiceConfiguration() {
-        return new MySecurityConfiguration();
-    }
-
-	private class MySecurityConfiguration extends ExtXsuaaServiceConfiguration {
-
-		@Override
-		public String getClientSecret() {
-			return "mysecret-basic";
-		}
-
-	}
-*/
-
-    /*
-     @Override
-     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-          auth.userDetailsService(userService);
-     }
-     */
-
-
-/*    
-	Converter<Jwt, AbstractAuthenticationToken> getJwtAuthenticationConverter() {       
-        Token jwtToken = SpringSecurityContext.getToken();
-
-        ExtUserInfo extUser = new ExtUserInfo();
-        Map<String, String> additionalAttributes = new HashMap<String, String>();
-        additionalAttributes.put("testName", "testName");
-        try{
-
-            OAuth2TokenResponse userToken = xsuaaTokenFlows.userTokenFlow()
-                            .token(jwtToken.toString())
-                            .subdomain(jwtToken.getSubdomain())     
-                            .disableCache(true)                 // optionally disables token cache for request
-                            .attributes(additionalAttributes)   // this is optional
-                            .execute();
-
-        } catch (TokenFlowException e) {
-            e.printStackTrace();
-        }
-        
-        
-        TokenAuthenticationConverter converter = new TokenAuthenticationConverter(xsuaaServiceConfiguration);
-        converter.setLocalScopeAsAuthorities(true);
-		return converter;
-    }
-*/    
 
 }

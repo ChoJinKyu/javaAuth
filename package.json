@@ -7,7 +7,9 @@
     "dependencies": {
         "@sap/cds": "^4.1.9",
         "@sap/hana-client": "^2.5.109",
-        "@sap/hdi-deploy": "^3.11.11"
+        "@sap/hdi-deploy": "^3.11.11",
+        "@sap/xsenv": "^3.1.0",
+        "@sap/xssec": "^3.0.10"
     },
     "cds": {
         "hana": {
@@ -17,35 +19,23 @@
             "db": {
                 "kind": "hana"
             },
-            "auth": {
-                "strategy": "mock",
-                "users": {
-                    "ckcho": {
-                        "password": "1234",
-                        "roles": [
-                            "View"
-                        ],
-                        "userAttributes": { 
-                            "engName" : "JinKyu"
-                        }
-                    }
-                }
+            "uaa": {
+                "kind": "xsuaa"
             }
         }
+    },
+    "devDependencies": {
+        "@sap/ui5-builder-webide-extension": "1.0.x",
+        "@ui5/cli": "2.2.6",
+        "eslint": "5.16.x",
+        "@sap/eslint-plugin-ui5-jsdocs": "2.0.x",
+        "@sapui5/ts-types": "1.71.x",
+        "bestzip": "2.1.4",
+        "rimraf": "3.0.2"
+    },
+    "ui5": {
+        "dependencies": [
+            "@sap/ui5-builder-webide-extension"
+        ]
     }
-},
-"devDependencies": {
-    "@sap/ui5-builder-webide-extension": "1.0.x",
-    "@ui5/cli": "2.2.6",
-    "eslint": "5.16.x",
-    "@sap/eslint-plugin-ui5-jsdocs": "2.0.x",
-    "@sapui5/ts-types": "1.71.x",
-    "bestzip": "2.1.4",
-    "rimraf": "3.0.2"
-},
-"ui5": {
-    "dependencies": [
-        "@sap/ui5-builder-webide-extension"
-    ]
-}
 }
