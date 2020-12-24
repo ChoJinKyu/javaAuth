@@ -1,0 +1,34 @@
+[
+    {
+        "name": "DP",
+        "id": "dp"
+    },
+    {
+        "name": "EP",
+        "id": "ep"
+    },
+    {
+        "name": "MC",
+        "id": "mc"
+    },
+    {
+        "name": "OP",
+        "id": "op"
+    },
+    {
+        "name": "PG",
+        "id": "pg"
+    },
+    {
+        "name": "SP",
+        "id": "sp"
+    },
+    {
+        "name": "CM",
+        "id": "cm"
+    },
+    {
+        "name": "XX",
+        "id": "xx"
+    }
+]

@@ -17,5 +17,16 @@
     "dependencies": [
       "@sap/ui5-builder-webide-extension"
     ]
-  }
+  },
+  "dependencies": {
+    "@sap/approuter": "^8.6.1",
+    "@sap/xsenv": "^3.1.0",
+    "@sap/xssec": "^3.0.10",
+    "body-parser": "^1.19.0",
+    "express": "^4.17.1",
+    "passport": "^0.4.1",
+    "path": "^0.12.7",
+    "request": "^2.88.2"
+  },
+  "main": "server.js"
 }

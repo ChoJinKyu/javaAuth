@@ -28,37 +28,6 @@
 				"syslog_drain_url": null,
 				"volume_mounts": []
 			}
-		],
-        "xsuaa": [
-            {
-                "label": "xsuaa",
-                "provider": null,
-                "plan": "application",
-                "name": "javaAuth-xsuaa-service",
-                "tags": [
-                    "xsuaa"
-                ],
-                "instance_name": "javaAuth-xsuaa-service",
-                "binding_name": null,
-                "credentials": {
-                    "tenantmode": "dedicated",
-                    "sburl": "https://internal-xsuaa.authentication.jp10.hana.ondemand.com",
-                    "subaccountid": "1e751440-0b7b-434b-84e2-69865d1cdf77",
-                    "clientid": "sb-javaauth!t479",
-                    "xsappname": "javaauth!t479",
-                    "clientsecret": "J9xjOxA0zEVmB+reoAEGtl7/ZIk=",
-                    "url": "https://lgauthentication.authentication.jp10.hana.ondemand.com",
-                    "uaadomain": "authentication.jp10.hana.ondemand.com",
-                    "verificationkey": "-----BEGIN PUBLIC KEY-----MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA2aBL+GLj7HvlmZ9SP9H9c4cRu84yIhxG0HuXEu0bSObqIEKuE9/BYfmzeUUR4ZdAtDFgGXOyhYtQVF1hEQAByhqC91B/CwXpDLyyXtF9ZP07uCUCkxtf7Nq86PgBB6WDRNCyGWOL1vrV3zmgCP3hIWcdaS5aEfh8N9Kfi9uh3P1MdroIN9uwq9rwwvtOP+QtqB0/rEtbllBbZxu3pfmy2ST0DlEQGL1qWnT58RnBSMPG3mC+I7rdOU6gf7s0LLskvjsQ5q0mwRp7TIScut6RxSE1WoAob/sHbrreA9gYOWUwWNkrWVyvcWcBdIc+TT9X9J0EeAH6Dz6GsykNw+6VbQIDAQAB-----END PUBLIC KEY-----",
-                    "apiurl": "https://api.authentication.jp10.hana.ondemand.com",
-                    "identityzone": "lgauthentication",
-                    "identityzoneid": "1e751440-0b7b-434b-84e2-69865d1cdf77",
-                    "tenantid": "1e751440-0b7b-434b-84e2-69865d1cdf77",
-                    "zoneid": "1e751440-0b7b-434b-84e2-69865d1cdf77"
-                },
-                "syslog_drain_url": null,
-                "volume_mounts": []
-            }
         ]
     }
 }

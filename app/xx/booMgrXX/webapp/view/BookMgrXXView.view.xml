@@ -3,7 +3,10 @@
 		<App id="app">
 			<pages>
 				<Page id="page" title="{i18n>title}">
-					<content></content>
+					<content>
+                        <Button id="btnTest" icon="sap-icon://add" press="onTest" tooltip="Test"></Button>
+                        <VBox id="userVBox"/>
+                    </content>
 				</Page>
 			</pages>
 		</App>

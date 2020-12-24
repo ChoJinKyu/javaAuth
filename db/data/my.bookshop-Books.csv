@@ -1,3 +1,6 @@
-ID;title;stock
-1;Wuthering Heights;100
-2;Jane Eyre;500
+ID;title;stock;language_cd
+1;Wuthering Heights;100;KO
+2;Jane Eyre;500;KO
+3;김소연;300;KO
+4;이지아;500;KO
+5;엄기준;300;KO

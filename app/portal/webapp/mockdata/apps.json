@@ -1,0 +1,129 @@
+{
+    "menus": [
+        {
+            "name": "Common",
+            "icon": "sap-icon://search",
+            "subMenus": [
+                {
+                    "name": "Code Mgr.",
+                    "url": "../cm/codeMgr/webapp",
+                    "component": "cm.codeMgr"
+                },
+                {
+                    "name": "Control Option Mgr.",
+                    "url": "../cm/controlOptionMgr/webapp",
+                    "component": "cm.controlOptionMgr"
+                }
+            ]
+        },
+        {
+            "name": "Examples",
+            "icon": "sap-icon://hint",
+            "subMenus": [
+                {
+                    "name": "Code Mgr.",
+                    "url": "../cm/codeMgr/webapp",
+                    "component": "cm.codeMgr"
+                },
+                {
+                    "name": "Control Option Mgr.",
+                    "url": "../cm/controlOptionMgr/webapp",
+                    "component": "cm.controlOptionMgr"
+                }
+            ]
+        }
+    ],
+
+
+
+
+    "groups": [
+        {
+            "title": "Common",
+            "subGroups": [
+                {
+                    "title": "Sub Group1",
+                    "apps": [
+                        {
+                            "appId": "cm.codeMgt",
+                            "header": "CODE Mgt.",
+                            "footer": {
+                                "image": "test-resources/sap/m/demokit/sample/GenericTileAsLaunchTile/images/SAPLogoLargeTile_28px_height.png",
+                                "unit": "EA",
+                                "desc": "Current Quarter"
+                            },
+                            "app": {
+                                "semantic": "",
+                                "display": ""
+                            }
+                        },
+                        {
+                            "appId": "cm.controlOptionMgt",
+                            "header": "Control Option Mgt.",
+                            "footer": {
+                                "image": "sap-icon://home-share",
+                                "unit": "EA",
+                                "desc": "Current Quarter"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "title": "Sub Group2",
+                    "apps": [
+                        {
+                            "header": "Sub Group2",
+                            "footer": {
+                                "image": "sap-icon://home-share",
+                                "unit": "EA",
+                                "desc": "Current Quarter"
+                            }
+                        }
+                    ]
+                }
+
+            ]
+        },
+        {
+            "title": "XX",
+            "subGroups": [
+                {
+                    "title": "Sub Group1",
+                    "apps": [
+                        {
+                            "header": "CODE Mgmt.",
+                            "footer": {
+                                "image": "test-resources/sap/m/demokit/sample/GenericTileAsLaunchTile/images/SAPLogoLargeTile_28px_height.png",
+                                "unit": "EA",
+                                "desc": "Current Quarter"
+                            }
+                        },
+                        {
+                            "header": "Control Option Mgmt.",
+                            "footer": {
+                                "image": "sap-icon://home-share",
+                                "unit": "EA",
+                                "desc": "Current Quarter"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "title": "Sub Group2",
+                    "apps": [
+                        {
+                            "header": "Sub Group2",
+                            "footer": {
+                                "image": "sap-icon://home-share",
+                                "unit": "EA",
+                                "desc": "Current Quarter"
+                            }
+                        }
+                    ]
+                }
+
+            ]
+        }
+
+    ]
+}

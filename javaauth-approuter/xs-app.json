@@ -1,18 +1,20 @@
 {
-    "authenticationMethod": "route",
+    "welcomeFile": "/app/index.html",
+    "authenticationMethod": "none",
     "routes": [
         {
-            "authenticationType": "xsuaa",
             "csrfProtection": false,
-            "source": "^/srv-api/(.*)$",
+            "source": "^.*/srv-api/(.*)$",
             "destination": "srv-api",
-            "target": "$1"
+            "target": "$1",
+            "authenticationType": "none"
         },
         {
-            "source": "^(.*)$",
+            "source": "^/app/(.*)$",
+            "cacheControl": "no-cache, no-store, must-revalidate",
             "target": "$1",
-            "service": "html5-apps-repo-rt",
-            "authenticationType": "xsuaa"
+            "localDir": "../app",
+            "authenticationType": "none"
         }
     ]
 }

@@ -1,0 +1,74 @@
+{
+    "menus": [
+        {
+            "name": "Sample",
+            "icon": "sap-icon://source-code",
+            "subMenus": [
+                {
+                    "name": "Sample Mgr",
+                    "url": "../xx/sampleMgr/webapp",
+                    "component": "xx.sampleMgr"
+                },
+                {
+                    "name": "Sample Grp mgr",
+                    "url": "../xx/sampleGrpMgr/webapp",
+                    "component": "xx.sampleGrpMgr"
+                },
+                {
+                    "name": "Sample Mst Mgr",
+                    "url": "../xx/sampleMstMgr/webapp",
+                    "component": "xx.sampleMstMgr"
+                }
+            ]
+        },
+        {
+            "name": "Example",
+            "icon": "sap-icon://example",
+            "subMenus": [
+                {
+                    "name": "UI5 Example #1",
+                    "url": "../xx/exampleControls/webapp",
+                    "component": "xx.exampleControls"
+                }
+            ]
+        },
+        {
+            "name": "Template",
+            "icon": "sap-icon://suitcase",
+            "subMenus": [
+                {
+                    "name": "단건의 View 모드 (TBD)",
+                    "url": "../xx/templateObject/webapp",
+                    "component": "xx.templateObject"
+                },
+                {
+                    "name": "단건의 Edit 모드",
+                    "url": "../xx/templateObjectEdit/webapp",
+                    "component": "xx.templateObjectEdit"
+                },
+                {
+                    "name": "다건(목록)의 View 모드 + 단건의 Edit 모드",
+                    "url": "../xx/templateListViewAndObjectEdit/webapp",
+                    "component": "xx.templateListViewAndObjectEdit"
+                },
+                {
+                    "name": "다건(목록)의 Edit 모드",
+                    "url": "../xx/templateListInlineEdit/webapp",
+                    "component": "xx.templateListInlineEdit"
+                },
+                {
+                    "name": "다건(목록) + 상세정보",
+                    "url": "../xx/templateListWithDetailsSeparated/webapp",
+                    "component": "xx.templateListWithDetailsSeparated",
+                    "visible": false
+                }, 
+                {
+                    "name": "다건(목록) + 화면분할 상세정보",
+                    "url": "../xx/templateFlexibleColumns/webapp",
+                    "component": "xx.templateFlexibleColumns"
+                }
+            ]
+        }
+    ]
+    
+}

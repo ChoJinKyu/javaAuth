@@ -1,12 +1,22 @@
 ---
-spring:
-  profiles: default
 cds:
+  odata-v4.endpoint.path: "/srv-api/odata/v4"
   security:
     mock:
+      enabled: true
       users:
-        - name: viewer-user
-          password: pass2
+        - name: admin
+          password: 3333333
           roles:
-            - ckcho
-          tenant: my-tenant
+          - SysAdmin
+          attributes:
+            { country : KR, language : KO, type : Employee, mail : admin@test.com, display_name : Admin }
+        - name: user
+          password: 3333
+          roles:
+          - View
+          attributes:
+            { country : KR, language : KO, type : Employee, mail : user@test.com, display_name : user }
+---
+spring:
+  profiles: cloud

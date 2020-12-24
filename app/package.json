@@ -10,11 +10,6 @@
     "cds": {
         "folders": {
             "srv": "../srv/"
-        },
-        "requires": {
-            "uaa": {
-                "kind": "xsuaa"
-            }
         }
     }
 }

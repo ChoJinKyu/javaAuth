@@ -1,0 +1,20 @@
+{
+    "welcomeFile": "/app/index.html",
+    "authenticationMethod": "route",
+    "routes": [
+        {
+            "csrfProtection": false,
+            "source": "^.*/srv-api/(.*)$",
+            "destination": "srv-api",
+            "target": "$1",
+            "authenticationType": "none"
+        },
+        {
+            "source": "^/app/(.*)$",
+            "cacheControl": "no-cache, no-store, must-revalidate",
+            "target": "$1",
+            "localDir": "./",
+            "authenticationType": "none"
+        }
+    ]
+}

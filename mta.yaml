@@ -61,6 +61,10 @@ modules:
       - booMgrXX-content.zip
       name: booMgrXX
       target-path: resources/
+    - artifacts:
+      - portal-content.zip
+      name: portal
+      target-path: resources/
 - name: bookMgr
   type: html5
   path: app/cm/bookMgr
@@ -72,6 +76,14 @@ modules:
 - name: booMgrXX
   type: html5
   path: app/xx/booMgrXX
+  build-parameters:
+    builder: custom
+    commands:
+    - npm run build
+    supported-platforms: []
+- name: portal
+  type: html5
+  path: app/portal
   build-parameters:
     builder: custom
     commands:

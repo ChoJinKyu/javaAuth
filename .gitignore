@@ -24,3 +24,6 @@ hs_err*
 
 .vscode
 .idea
+
+# added by cds deploy
+default-env.json

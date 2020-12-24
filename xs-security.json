@@ -16,28 +16,66 @@
             "description": "Admin permissions."
         }
     ],
+    "attributes": [
+        {
+            "name": "customAttribute1",
+            "description": "customAttribute1",
+            "valueType": "string"
+        },
+        {
+            "name": "customAttribute2",
+            "description": "customAttribute2",
+            "valueType": "string"
+        },
+        {
+            "name": "country",
+            "description": "country",
+            "valueType": "string"
+        },
+        {
+            "name": "language",
+            "description": "language",
+            "valueType": "string"
+        }
+    ],
     "role-templates": [
         {
             "name": "Token_Exchange",
             "description": "UAA",
             "scope-references": [
                 "uaa.user"
+            ],
+            "attribute-references": [
+                "customAttribute1",
+                "customAttribute2",
+                "country",
+                "language"
             ]
         },
         {
             "name": "Viewer_T",
             "description": "View Tem",
             "scope-references": [
-                "uaa.user",
                 "$XSAPPNAME.View"
+            ],
+            "attribute-references": [
+                "customAttribute1",
+                "customAttribute2",
+                "country",
+                "language"
             ]
         },
         {
             "name": "SystemAdmin_T",
             "description": "System Admin Tem",
             "scope-references": [
-                "uaa.user",
                 "$XSAPPNAME.SysAdmin"
+            ],
+            "attribute-references": [
+                "customAttribute1",
+                "customAttribute2",
+                "country",
+                "language"
             ]
         }
     ],

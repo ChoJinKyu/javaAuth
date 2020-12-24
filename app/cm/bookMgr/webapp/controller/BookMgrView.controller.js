@@ -33,6 +33,10 @@ sap.ui.define([
                 });
             },
 
+            onDelete : function () {
+
+            },
+
             onSave : function () {
                 
                 var oView = this.getView();
