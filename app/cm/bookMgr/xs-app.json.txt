@@ -7,6 +7,7 @@
             "csrfProtection": false,
             "source": "^.*/srv-api/(.*)$",
             "destination": "srv-api",
+            "localDir": "../app",
             "target": "$1"
         },
         {

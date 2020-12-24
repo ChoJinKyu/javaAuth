@@ -1,4 +1,12 @@
 ---
+spring:
+  resources:
+    cache:
+      cachecontrol:
+        no-cache: true
+        no-store: true
+    static-locations: "file:./app"
+---
 cds:
   odata-v4.endpoint.path: "/srv-api/odata/v4"
   security:
@@ -6,7 +14,7 @@ cds:
       enabled: true
       users:
         - name: admin
-          password: 3333333
+          password: 1234
           roles:
           - SysAdmin
           attributes:

@@ -13,7 +13,7 @@
             "source": "^/app/(.*)$",
             "cacheControl": "no-cache, no-store, must-revalidate",
             "target": "$1",
-            "localDir": "../app",
+            "localDir": "./app",
             "authenticationType": "none"
         }
     ]
